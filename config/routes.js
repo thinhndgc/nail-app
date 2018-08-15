@@ -25,6 +25,10 @@ module.exports.routes = {
   ***************************************************************************/
 
   'post /login': 'AuthController.login',
+  'post /logout': 'AuthController.logout',
   'post /checkToken': 'AuthController.checkToken',
+  'post /createCustomerAccount': 'UsersController.createCustomerAccount',
+  'post /resendVerifyPhoneCode': 'UsersController.resendVerifyPhoneCode',
+  'post /verifyPhoneNumber': 'UsersController.verifyPhoneNumber'
 
 };

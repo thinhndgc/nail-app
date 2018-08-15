@@ -16,6 +16,6 @@
 module.exports.datastores = {
   default: {
     adapter: 'sails-mysql',
-    url: 'mysql://root:root@139.99.46.59:3306/nails',
+    url: 'mysql://root:root@127.0.0.1:3306/nails',
   },
 };

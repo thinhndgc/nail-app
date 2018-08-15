@@ -14,17 +14,17 @@ module.exports = {
     const token = jwt.sign(
       payload,
       sails.config.appConfig.jwt_secret, {
-        expiresIn: '24h'
+        expiresIn: '7 days'
       }
     );
     return done(token);
   },
   verifyToken: function (token) {
     return new Promise((resolve, reject) => {
-        jwt.verify(token, sails.config.appConfig.jwt_secret, function (err, decoded) {
-          if (err) return reject(err);
-          return resolve(decoded);
-        });
+      jwt.verify(token, sails.config.appConfig.jwt_secret, function (err, decoded) {
+        if (err) return reject(err);
+        return resolve(decoded);
+      });
     });
   }
 };

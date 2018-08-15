@@ -20,6 +20,7 @@
     "sails-hook-orm": "^2.0.0-16",
     "sails-hook-sockets": "^1.4.0",
     "sails-mysql": "^1.0.0",
+    "twilio": "^3.19.1",
     "validator": "^10.5.0"
   },
   "devDependencies": {

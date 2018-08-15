@@ -17,20 +17,22 @@ module.exports = {
       autoIncrement: true,
     },
     name: {
-      type: 'string',
-      required: true
+      type: 'string'
     },
     email: {
       type: 'string',
-      unique: true,
       isEmail: true,
-      required: false
     },
     password: {
       type: 'string',
       required: true
     },
-    phone: {
+    countryCode: {
+      type: 'number',
+      columnType: 'int',
+      required: true
+    },
+    phoneNumber: {
       type: 'number',
       columnType: 'int',
       unique: true,
@@ -39,11 +41,21 @@ module.exports = {
     gender: {
       type: 'number',
       columnType: 'int',
-      required: true
     },
     address: {
       type: 'string',
-      required: true
+    },
+    token: {
+      type: 'string'
+    },
+    verifyCode: {
+      type: 'number',
+      columnType: 'int'
+    },
+    isVerifired: {
+      type: 'number',
+      columnType: 'int',
+      defaultsTo: 0
     },
     createdAt: {
       type: 'number',
@@ -52,15 +64,8 @@ module.exports = {
     updatedAt: {
       type: 'number',
       autoUpdatedAt: true
-    },
-
+    }
   },
-
-  /**
-   * Encrypt password before creating a User
-   * @param values
-   * @param proceed
-   */
   beforeCreate: function (values, proceed) {
     sails.helpers.hashPassword(values.password).exec((err, hashedPassword) => {
       if (err) {
